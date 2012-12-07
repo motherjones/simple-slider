@@ -1,0 +1,73 @@
+.slideshow_container {
+	font-family: Georgia, "Times New Roman", "Bitstream Vera Serif", serif;
+}
+
+.pagination_container li {
+	display: none;
+}
+
+.pagination_container li.selected {
+	display: inline;
+}
+
+.slideshow_container img {
+	max-width: 620px;
+	max-height: 300px;
+	display: block;
+	margin: 0 auto;
+}
+
+.slideshow_container p {
+	max-width: 600px;
+	max-height: 300px;
+/*	margin: 1.5em 2em 1em 2em; */
+    margin: 1.5em auto 1em auto;
+}
+
+.slideshow_container a {
+	color:#DF3732;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+#slideshow_back_button {
+	background-image: url(http://www.motherjones.com/sites/all/themes/denali/images/photoessay_control_sprite_20110714.png);
+	background-position: -25px -4px;
+	display: inline-block;
+	height: 22px;
+	width: 22px;
+	padding: 0;
+	text-indent: -9999px;
+	margin: 0 0 0 9.5em;
+	opacity: 1;
+	transition: opacity .2s ease-in-out;
+   -moz-transition: opacity .2s ease-in-out;
+   -webkit-transition: opacity .2s ease-in-out;
+}
+
+#slideshow_next_button {
+	background-image: url(http://www.motherjones.com/sites/all/themes/denali/images/photoessay_control_sprite_20110714.png);
+	background-position: -50px -4px;
+	display: inline-block;
+	height: 22px;
+	width: 22px;
+	padding: 0;
+	margin: 0;
+	text-indent: -9999px;
+	margin: 0 0 0 2em;
+	opacity: 1;
+	transition: opacity .2s ease-in-out;
+   -moz-transition: opacity .2s ease-in-out;
+   -webkit-transition: opacity .2s ease-in-out;
+}
+
+#slideshow_back_button:hover, #slideshow_next_button:hover {
+	opacity: .25;
+	color: white;
+	cursor: pointer;
+}
+
+.control_container {
+    margin: 1em auto;
+    width: 30em;
+}
