@@ -29,7 +29,7 @@ jQuery(function($) {
 
 The demo uses this spreadsheet https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html
 
-Each row is another slide in your slideshow. Each column is a different aspect of your slide you'd like to control. The columns we support are "title", "text", "top image", "bottom image", and "background image". I strongly recommend that you use only one of top, bottom, and background image.
+Each row is another slide in your slideshow. Each column is a different aspect of your slide you'd like to control. The columns we support are "title", "text", "top image", "middle image", "bottom image", and "background image". I strongly recommend that you use only one of top, middle, bottom, and background image.
 
 
 ## Examples
