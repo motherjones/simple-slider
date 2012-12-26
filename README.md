@@ -1,14 +1,16 @@
-# Gdoc Powered Slider
+# A Google Spreadsheet-Powered Slider
 
-A mobile friendly slider created from a google spreadsheet. Requires tabletop and jquery
+A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. This requires Tabletop.js and jQuery.
 
 ## Getting Started
+
+### 1) Start with the barebones slider
 Download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/motherjones/gdoc-powered-slider/master/dist/gdoc-powered-slider.min.js
 [max]: https://raw.github.com/motherjones/gdoc-powered-slider/master/dist/gdoc-powered-slider.js
 
-In your web page:
+Copy this into your web page:
 
 ```html
 <script src="jquery.js"></script>
@@ -25,14 +27,42 @@ jQuery(function($) {
 </script>
 ```
 
-## Writing your slideshow in a spreadsheet
+### 2) Add some meat to your slider using Google spreadsheet data
+If don't have a data set already and are starting from scratch, great! Open up a new Google spreadsheet. For the demo, we use this one: 
 
-The demo uses this spreadsheet https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html
+https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html
 
-Each row is another slide in your slideshow. Each column is a different aspect of your slide you'd like to control. The columns we support are "title", "text", "top image", "middle image", "bottom image", and "background image". I strongly recommend that you use only one of top, middle, bottom, and background image.
+Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports these columns headers: 
 
+"text"
+This column header is designated for any text that will go in the slide. You can also wrap text in this cell with anchor or span tags.
 
-## Examples
+//These column headers are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
+
+"top image"
+ 
+"middle image" 
+
+"bottom image"
+
+"background image"
+
+If you already have a data set you want to work with, just reformat your data as necessary to make it slider-friendly, as described above. 
+
+NOTE: If you're looking at the demo, you'll notice there's also an optional "source" column. We use this space to keep track of where we got the information feeding the "text" cells, for our internal reference. This keeps our army of fact-checkers happy.
+
+Once you've got these headers and some data in the spreadsheet, you're basically done. Super simple, right?
+
+### 3) Style your slider
+You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image columns (the demo uses only "top image") but don't worry, if you insist on using more than one, the slider will still work.
+
+## Other nice things about the slider
+
+Hotkeys work on it, so you can navigate the slideshow by striking the < and > keys.
+
+When you've reached the end of the slideshow, hitting next will loop you back to the first slide.
+
+## More Slider Examples
 _(Coming soon)_
 
 ## License
