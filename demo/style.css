@@ -71,3 +71,8 @@
     margin: 1em auto;
     width: 30em;
 }
+.slideshow_container li {
+    background-repeat: norepeat;
+    background-position: center top;
+    background-size: cover;
+}
