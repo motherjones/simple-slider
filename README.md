@@ -1,6 +1,6 @@
 # A Google Spreadsheet-Powered Slider
 
-A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. This requires Tabletop.js and jQuery.
+A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. This requires Tabletop.js, Swipe, and jQuery.
 
 ## Getting Started
 
@@ -22,15 +22,20 @@ Copy this into your web page:
 
 <script>
 jQuery(function($) {
-  $('#slideshow').slideshow('0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc');
+  $('#slideshow').slideshow('public_spreadsheet_url');
 });
 </script>
 ```
 
 ### 2) Add some meat to your slider using Google spreadsheet data
-If don't have a data set already and are starting from scratch, great! Open up a new Google spreadsheet. For the demo, we use this one: 
+If don't have a data set already and are starting from scratch, great! Open up a new Google spreadsheet. For the demo, we use [this one]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html).
 
-https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html
+In Google Docs, go up to the `File` menu and pick `Publish to the web`. Fiddle with whatever you want, then click `Start publishing`. A URL will appear, something like `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+
+Copy that! In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
+
+Paste that in to your call to slideshow, instead of public_spreadsheet_url. This line right here:
+`$('#slideshow').slideshow('public_spreadsheet_url');'
 
 Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports these columns headers: 
 
@@ -55,12 +60,6 @@ Once you've got these headers and some data in the spreadsheet, you're basically
 
 ### 3) Style your slider
 You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image columns (the demo uses only "top image") but don't worry, if you insist on using more than one, the slider will still work.
-
-## Other nice things about the slider
-
-Hotkeys work on it, so you can navigate the slideshow by striking the < and > keys.
-
-When you've reached the end of the slideshow, hitting next will loop you back to the first slide.
 
 ## More Slider Examples
 _(Coming soon)_
