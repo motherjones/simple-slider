@@ -34,8 +34,8 @@ In Google Docs, go up to the `File` menu and pick `Publish to the web`. Fiddle w
 
 Copy that! In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
 
-Paste that in to your call to slideshow, instead of public_spreadsheet_url. This line right here:
-`$('#slideshow').slideshow('public_spreadsheet_url');'
+Paste that in to your call to slideshow, instead of public_spreadsheet_url, on this line:
+`$('#slideshow').slideshow('public_spreadsheet_url');`
 
 Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports these columns headers: 
 
