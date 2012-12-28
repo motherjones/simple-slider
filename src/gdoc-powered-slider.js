@@ -220,7 +220,9 @@
                that.swipe.prev();
             },
             next : function() {
-               that.swipe.next();
+               if ( that.swipe.index !== (that.slides.length - 1) ) { 
+                   that.swipe.next();
+               }
             }
         };
         return slideshow.init(slides, options);
