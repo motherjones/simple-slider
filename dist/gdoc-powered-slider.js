@@ -89,9 +89,14 @@
                         }
                 );
 
-
                 that.control_container = that.create_controls();
                 cover.append(that.control_container)
+                if (that.swipe.index === 0) {
+                    console.log(cover.find('.control_container #slideshow_back_button'));
+                    cover.find('.control_container #slideshow_back_button').addClass('disabled');
+                } else if (that.swipe.index === (that.slides.length - 1)) {
+                    cover.find('.control_container #slideshow_next_button').addClass('disabled');
+                }
 
                 jQuery(document).bind('resize', function() {
                     that.control_container.remove();
@@ -195,6 +200,7 @@
                 that.pagination = that.create_pagination();
                 control_container.append(that.pagination);
                 control_container.append(that.create_next_button_elem());
+
                 return control_container;
             },
             create_back_button_elem : function() {
