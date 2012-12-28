@@ -1,4 +1,4 @@
-/*! Gdoc Powered Slider - v0.1.0 - 2012-12-27
+/*! Gdoc Powered Slider - v0.1.0 - 2012-12-28
 * https://github.com/motherjones/gdoc-powered-slider
 * Copyright (c) 2012 Ben Breedlove; Licensed MIT, GPL */
 
@@ -92,7 +92,6 @@
                 that.control_container = that.create_controls();
                 cover.append(that.control_container)
                 if (that.swipe.index === 0) {
-                    console.log(cover.find('.control_container #slideshow_back_button'));
                     cover.find('.control_container #slideshow_back_button').addClass('disabled');
                 } else if (that.swipe.index === (that.slides.length - 1)) {
                     cover.find('.control_container #slideshow_next_button').addClass('disabled');
