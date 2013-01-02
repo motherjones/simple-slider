@@ -190,17 +190,13 @@
 					return;
 				};
 				height = parseInt(height[0].replace(/height="/, '').replace(/"/, ''));
-				console.log(height);
-				
-//				<iframe width="640" height="480" src="http://www.youtube.com/embed/DpS9Z3dj2To" frameborder="0" allowfullscreen></iframe>
-				
+								
 				var width = videoembed.match(/width="\d+"/);
 				if (!width[0]) {
 					console.log('Your video embed code needs a width.');
 					return;
 				};
 				width = parseInt(width[0].replace(/width="/, '').replace(/"/, ''));
-				console.log(width);
 			
 				return (height / width)*100;
 			},			
