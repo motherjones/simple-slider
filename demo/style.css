@@ -70,6 +70,7 @@
 .control_container {
     margin: 1em auto;
     width: 30em;
+	text-align: center;
 }
 .slideshow_container li {
     background-repeat: norepeat;
