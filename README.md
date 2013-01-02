@@ -39,13 +39,13 @@ Paste that in to your call to slideshow, instead of public_spreadsheet_url, on t
 
 Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
 
-`title		text`		`top image		middle image	bottom image	background image` 	`top video 	middle video	bottom video`
+`title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video` `middle video`	`bottom video`
 
 The `title` and `text` columns are designated for any text that will go in the slide. You can wrap text in these cells with anchor or span tags.
 
-The `top image		middle image	bottom image	background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
+The `top image` `middle image`	`bottom image` `background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
 
-The `top video 		middle video	bottom video` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
+The `top video` `middle video`	`bottom video` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
 
 `<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
@@ -57,9 +57,10 @@ NOTE: If you're looking at the demo, you'll notice there's also an optional `sou
 
 Once you've got these headers and some data in the spreadsheet, you're basically done. Super simple, right?
 
+
 ### 2a) Give your slider content with JSON
 
-If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly. It looks like this:
+If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly, which will look like this:
 
 ```
 
@@ -68,7 +69,7 @@ var slideshow = jQuery.slideshow([
 		backgroundimage: 'http://i.imgur.com/QYMjo.jpg',
 		topimage: 'http://i.imgur.com/QYMjo.jpg',
 		topvideoembed: '<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>',
-		title: 'Goats and Cats That Faint',
+		title: 'Goats and Kittens That Faint',
 		middleimage: 'http://i.imgur.com/QYMjo.jpg',
 		middlevideooembed: '<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>',
 		text: 'Awwww-inspiring animals',
@@ -78,6 +79,8 @@ var slideshow = jQuery.slideshow([
 ]);
 
 ```
+
+You'll replace our text, images, and videos with your own, unless you are also a fan of fainting goats and kittens.
 
 ### 3) Style your slider
 You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
