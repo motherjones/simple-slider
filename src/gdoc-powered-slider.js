@@ -143,7 +143,7 @@
             build_slide_html_from_row: function(row) {
                 return '<li '
                     + ( row.backgroundimage 
-                            ? 'style="background-image: url(\'' + row.backgroundimage + '\');">' 
+                            ? 'class="slide_with_background_image" style="background-image: url(\'' + row.backgroundimage + '\');">' 
                             : '>' )
                     + ( row.topimage 
                             ? '<img src="' + row.topimage + '" class="topimage"></img>' 
