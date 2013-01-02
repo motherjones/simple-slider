@@ -127,7 +127,23 @@
             },
 
 			make_slides_data_from_spreadsheet_data: function(data) {
-				return data;
+				for (var i = 0; i < data.length; i++) {
+					var row = data[i];
+								
+					if (row.topvideoembed) {
+						row.topaspectratio = self.find_aspectratio(row.topvideoembed);
+					}
+				
+					if (row.middlevideoembed) {
+						row.middleaspectratio = self.find_aspectratio(row.middlevideoembed);
+					}
+				
+					if (row.bottomvideoembed) {
+						row.bottomaspectratio = self.find_aspectratio(row.bottomvideoembed);
+					}
+				}
+					
+				return data;				
 			},
 
             make_html_from_slide_data: function(data) {
@@ -140,7 +156,9 @@
                 }
                 return slides;
             },
+
             build_slide_html_from_row: function(row) {
+
                 return '<li '
                     + ( row.backgroundimage 
                             ? 'class="slide_with_background_image" style="background-image: url(\'' + row.backgroundimage + '\');">' 
@@ -148,18 +166,58 @@
                     + ( row.topimage 
                             ? '<img src="' + row.topimage + '" class="topimage"></img>' 
                             : ''  )
+					
+					+ ( row.topaspectratio
+							? '<div class="videoembed" style="padding-bottom:' + row.topaspectratio + '%">' + row.topvideoembed + '</div>'
+							: ''  )			
+							
                     + ( row.title 
                             ? '<h1>' + row.title + '</h1>' 
                             : ''  )
+
 		            + ( row.middleimage 
 		                    ? '<img src="' + row.middleimage + '" class="middleimage"></img>' 
 		                    : ''  )
+					
+					+ ( row.middleaspectratio
+							? '<div class="videoembed" style="padding-bottom:' + row.middleaspectratio + '%">' + row.middlevideoembed + '</div>'
+							: ''  )
+							
                     + '<p>' + row.text + '</p>'
+
                     + ( row.bottomimage 
                             ? '<img src="' + row.bottomimage + '" class="bottomimage"></img>' 
                             : ''  )
+
+					+ ( row.bottomaspectratio
+							? '<div class="videoembed" style="padding-bottom:' + row.bottomaspectratio + '%">' + row.bottomvideoembed + '</div>'
+							: ''  )
+							
                     + '</li>';
             },
+
+			find_aspectratio: function(videoembed) {
+				var height = videoembed.match(/height="\d+"/);
+				if (!height[0]) {
+					console.log('Your video embed code needs a height.');
+					return;
+				};
+				height = parseInt(height[0].replace(/height="/, '').replace(/"/, ''));
+				console.log(height);
+				
+//				<iframe width="640" height="480" src="http://www.youtube.com/embed/DpS9Z3dj2To" frameborder="0" allowfullscreen></iframe>
+				
+				var width = videoembed.match(/width="\d+"/);
+				if (!width[0]) {
+					console.log('Your video embed code needs a width.');
+					return;
+				};
+				width = parseInt(width[0].replace(/width="/, '').replace(/"/, ''));
+				console.log(width);
+			
+				return (height / width)*100;
+			},			
+			
             create_cover : function() {
                 cover = $('#' + self.container);
                 container_elem = jQuery('<ul></ul>');
