@@ -37,32 +37,50 @@ Copy that! In theory you're interested in the part between `key=` and `&` but yo
 Paste that in to your call to slideshow, instead of public_spreadsheet_url, on this line:
 `$('#slideshow').slideshow('public_spreadsheet_url');`
 
-Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports these columns headers: 
+Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
 
-"text"
-This column header is designated for any text that will go in the slide. You can also wrap text in this cell with anchor or span tags.
+`title		text`		`top image		middle image	bottom image	background image` 	`top video 	middle video	bottom video`
 
-//These column headers are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
+The `title` and `text` columns are designated for any text that will go in the slide. You can wrap text in these cells with anchor or span tags.
 
-"top image"
- 
-"middle image" 
+The `top image		middle image	bottom image	background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
 
-"bottom image"
+The `top video 		middle video	bottom video` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
 
-"background image"
+`<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
 If you already have a data set you want to work with, just reformat your data as necessary to make it slider-friendly, as described above. 
 
-NOTE: If you're looking at the demo, you'll notice there's also an optional "source" column. We use this space to keep track of where we got the information feeding the "text" cells, for our internal reference. This keeps our army of fact-checkers happy.
+In your spreadsheet, you only need to input the column headers that you will use.
+
+NOTE: If you're looking at the demo, you'll notice there's also an optional `source` column. We use this space to keep track of where we got the information feeding the "text" cells, for our internal reference. This keeps our army of fact-checkers happy.
 
 Once you've got these headers and some data in the spreadsheet, you're basically done. Super simple, right?
 
-### 3) Style your slider
-You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image columns (the demo uses only "top image") but don't worry, if you insist on using more than one, the slider will still work.
+### 2a) Give your slider content with JSON
 
-## More Slider Examples
-_(Coming soon)_
+If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly. It looks like this:
+
+```
+
+var slideshow = jQuery.slideshow([
+	{
+		backgroundimage: 'http://i.imgur.com/QYMjo.jpg',
+		topimage: 'http://i.imgur.com/QYMjo.jpg',
+		topvideoembed: '<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>',
+		title: 'Goats and Cats That Faint',
+		middleimage: 'http://i.imgur.com/QYMjo.jpg',
+		middlevideooembed: '<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>',
+		text: 'Awwww-inspiring animals',
+		bottomimage: 'http://i.imgur.com/QYMjo.jpg',
+		bottomvideoembed: '<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>'
+	}	
+]);
+
+```
+
+### 3) Style your slider
+You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
 
 ## License
 Copyright (c) 2012 Ben Breedlove  

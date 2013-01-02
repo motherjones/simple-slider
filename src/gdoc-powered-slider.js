@@ -36,6 +36,9 @@
                     self.make_slides_from_google_spreadsheet(raw_slides);
                     return self;
                 }
+
+				self.calculate_aspectratios(raw_slides);
+
                 self.slides = self.make_html_from_slide_data(raw_slides);		
                     
                 self.create_cover();
@@ -126,23 +129,7 @@
                 });
             },
 
-			make_slides_data_from_spreadsheet_data: function(data) {
-				for (var i = 0; i < data.length; i++) {
-					var row = data[i];
-								
-					if (row.topvideoembed) {
-						row.topaspectratio = self.find_aspectratio(row.topvideoembed);
-					}
-				
-					if (row.middlevideoembed) {
-						row.middleaspectratio = self.find_aspectratio(row.middlevideoembed);
-					}
-				
-					if (row.bottomvideoembed) {
-						row.bottomaspectratio = self.find_aspectratio(row.bottomvideoembed);
-					}
-				}
-					
+			make_slides_data_from_spreadsheet_data: function(data) {					
 				return data;				
 			},
 
@@ -217,6 +204,24 @@
 			
 				return (height / width)*100;
 			},			
+			
+			calculate_aspectratios: function(data) {
+				
+				for (var i = 0; i < data.length; i++) {
+					var row = data[i];
+						if (row.topvideoembed) {
+							row.topaspectratio = self.find_aspectratio(row.topvideoembed);
+						}
+
+						if (row.middlevideoembed) {
+							row.middleaspectratio = self.find_aspectratio(row.middlevideoembed);
+						}
+
+						if (row.bottomvideoembed) {
+							row.bottomaspectratio = self.find_aspectratio(row.bottomvideoembed);
+						}
+					}				
+			},
 			
             create_cover : function() {
                 cover = $('#' + self.container);
