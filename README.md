@@ -39,13 +39,13 @@ Paste that in to your call to slideshow, instead of public_spreadsheet_url, on t
 
 Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
 
-`title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video` `middle video`	`bottom video`
+`title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video embed` 	`middle video embed`	`bottom video embed`
 
 The `title` and `text` columns are designated for any text that will go in the slide. You can wrap text in these cells with anchor or span tags.
 
 The `top image` `middle image`	`bottom image` `background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
 
-The `top video` `middle video`	`bottom video` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
+The `top video embed` `middle video embed`	`bottom video embed` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
 
 `<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
