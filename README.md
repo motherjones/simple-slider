@@ -28,37 +28,35 @@ jQuery(function($) {
 ```
 
 ### 2) Add some meat to your slider using Google spreadsheet data
-If don't have a data set already and are starting from scratch, great! Open up a new Google spreadsheet. For the demo, we use [this one]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html).
+Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) in a folder in the Mother Jones google drive, and rename it to whatever you like.
 
-In Google Docs, go up to the `File` menu and pick `Publish to the web`. Fiddle with whatever you want, then click `Start publishing`. A URL will appear, something like `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+Go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. A URL will appear, something like `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
 
 Copy that! In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
 
-Paste that in to your call to slideshow, instead of public_spreadsheet_url, on this line:
+Paste the key into your html file, in the place of public_spreadsheet_url, on this line:
 `$('#slideshow').slideshow('public_spreadsheet_url');`
 
-Keep in mind that in order for the slider to digest what's in the spreadsheet, you'll need to get your data into the proper format. Think of each row as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
+Think of each row of your spreadsheet as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
 
 `title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video embed` 	`middle video embed`	`bottom video embed`
 
-The `title` and `text` columns are designated for any text that will go in the slide. You can wrap text in these cells with anchor or span tags.
+The `title` and `text` columns are designated for any text that will go in the slide. Only include the columns you want; they're all optional.
 
 The `top image` `middle image`	`bottom image` `background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
 
-The `top video embed` `middle video embed`	`bottom video embed` columns are designated for embedding videos you want to playback inside the slide. Simply find the video, copy the embed code, and paste into the spreadsheet cell. The embed code will look something like this:
+The `top video embed` `middle video embed`	`bottom video embed` columns are designated for embedding videos in slides. Copy the video's embed code and paste that code the spreadsheet cell. The embed code will look something like this:
 
 `<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
-If you already have a data set you want to work with, just reformat your data as necessary to make it slider-friendly, as described above. 
+If you already have a dataset you want to work with, just reformat your data as necessary to make it slider-friendly, as described above. You can use html tags in these cells such as <strong>, <a>, <span>, and so on.
 
-In your spreadsheet, you only need to input the column headers that you will use.
+NOTE: In the demo spreadsheet, you'll notice there's a `source` column. This is for internal reference only—it keeps our army of fact-checkers happy.
 
-NOTE: If you're looking at the demo, you'll notice there's also an optional `source` column. We use this space to keep track of where we got the information feeding the "text" cells, for our internal reference. This keeps our army of fact-checkers happy.
-
-Once you've got these headers and some data in the spreadsheet, you're basically done. Super simple, right?
+Once you've got these headers and some data in the spreadsheet, you're basically done.
 
 
-### 2a) Give your slider content with JSON
+### 2a) Optional: using JSON to feed your slider
 
 If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly, which will look like this:
 
@@ -86,35 +84,4 @@ You'll replace our text, images, and videos with your own, unless you are also a
 You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
 
 ## License
-Copyright (c) 2012 Ben Breedlove  
-Licensed under the MIT, GPL licenses.
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
-
-### Important notes
-Please don't edit files in the `dist` subdirectory as they are generated via grunt. You'll find source code in the `src` subdirectory!
-
-While grunt can run the included unit tests via PhantomJS, this shouldn't be considered a substitute for the real thing. Please be sure to test the `test/*.html` unit test file(s) in _actual_ browsers.
-
-### Installing grunt
-_This assumes you have [node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed already._
-
-1. Test that grunt is installed globally by running `grunt --version` at the command-line.
-1. If grunt isn't installed globally, run `npm install -g grunt` to install the latest version. _You may need to run `sudo npm install -g grunt`._
-1. From the root directory of this project, run `npm install` to install the project's dependencies.
-
-### Installing PhantomJS
-
-In order for the qunit task to work properly, [PhantomJS](http://www.phantomjs.org/) must be installed and in the system PATH (if you can run "phantomjs" at the command line, this task should work).
-
-Unfortunately, PhantomJS cannot be installed automatically via npm or grunt, so you need to install it yourself. There are a number of ways to install PhantomJS.
-
-* [PhantomJS and Mac OS X](http://ariya.ofilabs.com/2012/02/phantomjs-and-mac-os-x.html)
-* [PhantomJS Installation](http://code.google.com/p/phantomjs/wiki/Installation) (PhantomJS wiki)
-
-Note that the `phantomjs` executable needs to be in the system `PATH` for grunt to see it.
-
-* [How to set the path and environment variables in Windows](http://www.computerhope.com/issues/ch000549.htm)
-* [Where does $PATH get set in OS X 10.6 Snow Leopard?](http://superuser.com/questions/69130/where-does-path-get-set-in-os-x-10-6-snow-leopard)
-* [How do I change the PATH variable in Linux](https://www.google.com/search?q=How+do+I+change+the+PATH+variable+in+Linux)
+Copyright (c) 2012 Mother Jones
