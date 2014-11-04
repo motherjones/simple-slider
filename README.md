@@ -6,9 +6,11 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) in a folder in the Mother Jones google drive, and rename it to whatever you like.
 
-Go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. A URL will appear, something like `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+Go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. 
 
-Copy that! In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
+A URL will appear, something like: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+
+Copy that. In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
 
 Paste the key into your html file, in the place of public_spreadsheet_url, on this line:
 `$('#slideshow').slideshow('public_spreadsheet_url');`
