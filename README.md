@@ -1,33 +1,9 @@
 # A Google Spreadsheet-Powered Slider
 
-A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. This requires Tabletop.js, Swipe, and jQuery.
+A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe.
 
 ## Getting Started
 
-### 1) Start with the barebones slider
-Download the [production version][min] or the [development version][max].
-
-[min]: https://raw.github.com/motherjones/gdoc-powered-slider/master/dist/gdoc-powered-slider.min.js
-[max]: https://raw.github.com/motherjones/gdoc-powered-slider/master/dist/gdoc-powered-slider.js
-
-Copy this into your web page:
-
-```html
-<script src="jquery.js"></script>
-<script src="libs/tabletop.js"></script>
-<script src="libs/swipe.min.js"></script>      
-<script src="dist/gdoc-powered-slider.min.js"></script>
-
-<div id="slideshow"></div>
-
-<script>
-jQuery(function($) {
-  $('#slideshow').slideshow('public_spreadsheet_url');
-});
-</script>
-```
-
-### 2) Add some meat to your slider using Google spreadsheet data
 Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) in a folder in the Mother Jones google drive, and rename it to whatever you like.
 
 Go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. A URL will appear, something like `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
