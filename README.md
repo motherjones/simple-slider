@@ -28,22 +28,30 @@ We'll go over how to format the data in each column of your spreadsheet below.
 
 ## Set up your Google Spreadsheet
 
-Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) in a folder in the Mother Jones google drive, and rename it to whatever you like.
+*MoJo staffers:* Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet appropriately. Change owner to MoJo Data in ``Share > Advanced``
 
-Go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. 
+In your new spreadsheet, go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. 
 
-A URL will appear, something like: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+A URL will appear. It will look like this: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
 
-Copy that. In theory you're interested in the part between `key=` and `&` but you can use the whole thing if you want.
+Copy that link. This is your spreadsheet ID or url, which you will eventually use to connect your spreadsheet to the slider.
 
-Paste the key into your html file, in the place of public_spreadsheet_url, on this line:
+## Modify your project files
+
+*MoJo staffers:* By now you should have a local clone of this project repo on your machine, by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project)
+
+**In index.html:**
+
+Paste the link you just copied into your html file, in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
 `$('#slideshow').slideshow('public_spreadsheet_url');`
+
+## Format your spreadsheet data
 
 Think of each row of your spreadsheet as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
 
 `title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video embed` 	`middle video embed`	`bottom video embed`
 
-The `title` and `text` columns are designated for any text that will go in the slide. Only include the columns you want; they're all optional.
+The `title` and `text` columns are designated for any text that will go in the slide. Only include the columns you want; they're all optional. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>.
 
 The `top image` `middle image`	`bottom image` `background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
 
@@ -51,14 +59,17 @@ The `top video embed` `middle video embed`	`bottom video embed` columns are desi
 
 `<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
-If you already have a dataset you want to work with, just reformat your data as necessary to make it slider-friendly, as described above. You can use html tags in these cells such as <strong>, <a>, <span>, and so on.
+*Note:* The `source` column is for *MoJo staffers*—it keeps our army of fact-checkers happy.
 
-NOTE: In the demo spreadsheet, you'll notice there's a `source` column. This is for internal reference only—it keeps our army of fact-checkers happy.
+Once you've got the data formatted properly, you're almost done.
 
-Once you've got these headers and some data in the spreadsheet, you're basically done.
+**In style.css**
 
+You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
 
-### Optional: using JSON to feed your slider
+*MoJo staffers:*
+
+## Optional: using JSON to feed your slider
 
 If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly, which will look like this:
 
@@ -79,11 +90,6 @@ var slideshow = jQuery.slideshow([
 ]);
 
 ```
-
-You'll replace our text, images, and videos with your own, unless you are also a fan of fainting goats and kittens.
-
-### Style your slider
-You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
 
 ## License
 Copyright (c) 2012 Mother Jones
