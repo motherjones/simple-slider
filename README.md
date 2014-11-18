@@ -17,8 +17,10 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 Each slide consists of a `title`, `middle image`, and some caption `text`. You'll need to populate a Google Spreadsheet with the content you want in each slide. (Note that video embeds are not fully supported at this stage.) Here's an example based on the screenshot above:
 
 `title`: Baldwin
+
 `middle image`: http://assets.motherjones.com/environment/2013/04/baldwin.jpg
-`text`: One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>
+
+`text`: `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`
 
 We'll go over how to format the data in each column of your spreadsheet below.
 
