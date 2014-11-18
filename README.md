@@ -1,6 +1,10 @@
 # A Google Spreadsheet-Powered Slider
 
-A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe.
+A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. Here's what it looks like:
+
+## Examples in the Wild
+
+[Why Your Supermarket Sells Only 5 Kinds of Apples](http://www.motherjones.com/environment/2013/04/heritage-apples-john-bunker-maine)
 
 ## Getting Started
 
