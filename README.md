@@ -10,7 +10,21 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 [Why Your Supermarket Sells Only 5 Kinds of Apples](http://www.motherjones.com/environment/2013/04/heritage-apples-john-bunker-maine)
 
-## Getting Started
+[The rare earth metals we use every day](http://www.motherjones.com/environment/2012/11/rare-earth-elements-iphone-malaysia)
+
+## How it works
+
+Each slide consists of a `title`, `middle image`, and some caption `text`. You'll need to populate a Google Spreadsheet with the content you want in each slide. (Note that video embeds are not fully supported at this stage.) Here's an example based on the screenshot above:
+
+`title`: Baldwin
+`middle image`: http://assets.motherjones.com/environment/2013/04/baldwin.jpg
+`text`: One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>
+
+We'll go over how to format the data in each column of your spreadsheet below.
+
+*MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project). When you're done, upload to s3 and embed in the shell [(how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
+
+## Set up your Google Spreadsheet
 
 Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) in a folder in the Mother Jones google drive, and rename it to whatever you like.
 
@@ -42,7 +56,7 @@ NOTE: In the demo spreadsheet, you'll notice there's a `source` column. This is 
 Once you've got these headers and some data in the spreadsheet, you're basically done.
 
 
-### 2a) Optional: using JSON to feed your slider
+### Optional: using JSON to feed your slider
 
 If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly, which will look like this:
 
@@ -66,7 +80,7 @@ var slideshow = jQuery.slideshow([
 
 You'll replace our text, images, and videos with your own, unless you are also a fan of fainting goats and kittens.
 
-### 3) Style your slider
+### Style your slider
 You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
 
 ## License
