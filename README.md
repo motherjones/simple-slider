@@ -1,6 +1,6 @@
 # A Google Spreadsheet-Powered Slider
 
-A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. Here's what it looks like:
+A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. Here's an example slide:
 
 <p align="center">
   <img width="50%" src="https://raw.githubusercontent.com/motherjones/simple-slider/master/img/screenshot.png" alt="screenshot"/>
@@ -16,11 +16,11 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 *MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to format the data in each column of your spreadsheet below, but here's an example row based on the screenshot above:
+In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to set up and format your spreadsheet below, but here's an snapshot of what your data should look like:
 
 **title** | **middle image** | **text**
  ----------------|--------------|----------------:
- Baldwin | http://assets.motherjones.com/environment/2013/04/baldwin.jpg | One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>
+ `Baldwin` | `http://assets.motherjones.com/environment/2013/04/baldwin.jpg` | `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`
 
 **Get fancy:** You can play around with the slider's layout by swapping `middle image` for a `top image`, `bottom image`, or `background image` column. Or try embedding videos instead of still images by swapping `middle image` for `top video embed`, `middle video embed`, or `bottom video embed`. If you're using our base CSS, we recommend you stick with just one image or video column. But if you feel compelled to use more than one, the slider will still work.
 
@@ -41,7 +41,12 @@ Copy that link. This is your spreadsheet ID or url, which you will eventually us
 **In index.html (required):**
 
 Paste the link you just copied into your html file, in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
-`$('#slideshow').slideshow('public_spreadsheet_url');`
+
+```
+
+$('#slideshow').slideshow('public_spreadsheet_url');
+
+```
 
 **In style.css (optional):**
 
@@ -59,11 +64,15 @@ For `top video embed`, `middle video embed`, `bottom video embed`, only add the 
 
 The `source` column is for *MoJo staffers* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
 
-Once you've got the data formatted properly, you're almost done.
+Once you've got the data formatted properly. Now you're ready to stage the slider.
 
-## Optional: using JSON to feed your slider
+## Staging the inline-slider (for MoJo staff only)
 
-If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly. Here's an example:
+*MoJo staffers:* When you're done, upload to s3 and embed in the shell [(how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
+
+## Use JSON instead (optional)
+
+If your prefer, you can store your slider data in a JSON file instead of a Google spreadsheet. Simply model your JSON after this example:
 
 ```
 
