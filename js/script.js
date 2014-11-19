@@ -1,7 +1,3 @@
-/*! Gdoc Powered Slider - v0.1.0 - 2013-01-02
-* https://github.com/motherjones/gdoc-powered-slider
-* Copyright (c) 2013 Ben Breedlove; Licensed MIT, GPL */
-
 
 (function($) {
 
@@ -16,7 +12,7 @@
         var pushed_back = false;
 
         var slideshow = {
-            container : 'slideshow_container',
+            container : 'slideshow',
             init : function(raw_slides, options) {
                 self = this;
                 if (options) {
@@ -41,9 +37,7 @@
                     return self;
                 }
 
-				self.calculate_aspectratios(raw_slides);
-
-                self.slides = self.make_html_from_slide_data(raw_slides);		
+                self.slides = self.make_html_from_slide_data(raw_slides);       
                     
                 self.create_cover();
 
@@ -133,12 +127,12 @@
                 });
             },
 
-			make_slides_data_from_spreadsheet_data: function(data) {					
-				return data;				
-			},
+            make_slides_data_from_spreadsheet_data: function(data) {                    
+                return data;                
+            },
 
             make_html_from_slide_data: function(data) {
-				var slides = [];
+                var slides = [];
                 for (var i = 0; i < data.length; i++) {
                     var row = data[i];
                     var slide = {}; 
@@ -154,75 +148,22 @@
                     + ( row.backgroundimage 
                             ? 'class="slide_with_background_image" style="background-image: url(\'' + row.backgroundimage + '\');">' 
                             : '>' )
-                    + ( row.topimage 
-                            ? '<img src="' + row.topimage + '" class="topimage img-responsive"></img>' 
-                            : ''  )
-					
-					+ ( row.topaspectratio
-							? '<div class="videoembed" style="padding-bottom:' + row.topaspectratio + '%">' + row.topvideoembed + '</div>'
-							: ''  )			
-							
                     + ( row.title 
                             ? '<h1>' + row.title + '</h1>' 
+                            : ''  ) 
+                    + ( row.image 
+                            ? '<img src="' + row.image + '" class="image img-responsive"></img>' 
                             : ''  )
-
-		            + ( row.middleimage 
-		                    ? '<img src="' + row.middleimage + '" class="middleimage img-responsive"></img>' 
-		                    : ''  )
-					
-					+ ( row.middleaspectratio
-							? '<div class="videoembed" style="padding-bottom:' + row.middleaspectratio + '%">' + row.middlevideoembed + '</div>'
-							: ''  )
-							
+                    
+                    + ( row.embed
+                            ? '<div class="embed-responsive embed-responsive-4by3">' + row.embed + '</div>'
+                            : ''  )
+                            
                     + '<p>' + row.text + '</p>'
-
-                    + ( row.bottomimage 
-                            ? '<img src="' + row.bottomimage + '" class="bottomimage img-responsive"></img>' 
-                            : ''  )
-
-					+ ( row.bottomaspectratio
-							? '<div class="videoembed" style="padding-bottom:' + row.bottomaspectratio + '%">' + row.bottomvideoembed + '</div>'
-							: ''  )
-							
+                            
                     + '</li>';
             },
-
-			find_aspectratio: function(videoembed) {
-				var height = videoembed.match(/height="\d+"/);
-				if (!height[0]) {
-					console.log('Your video embed code needs a height.');
-					return;
-				};
-				height = parseInt(height[0].replace(/height="/, '').replace(/"/, ''));
-								
-				var width = videoembed.match(/width="\d+"/);
-				if (!width[0]) {
-					console.log('Your video embed code needs a width.');
-					return;
-				};
-				width = parseInt(width[0].replace(/width="/, '').replace(/"/, ''));
-			
-				return (height / width)*100;
-			},			
-			
-			calculate_aspectratios: function(data) {
-				
-				for (var i = 0; i < data.length; i++) {
-					var row = data[i];
-						if (row.topvideoembed) {
-							row.topaspectratio = self.find_aspectratio(row.topvideoembed);
-						}
-
-						if (row.middlevideoembed) {
-							row.middleaspectratio = self.find_aspectratio(row.middlevideoembed);
-						}
-
-						if (row.bottomvideoembed) {
-							row.bottomaspectratio = self.find_aspectratio(row.bottomvideoembed);
-						}
-					}				
-			},
-			
+            
             create_cover : function() {
                 cover = $('#' + self.container);
                 container_elem = jQuery('<ul></ul>');
