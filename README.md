@@ -14,15 +14,15 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 ## How it works
 
-In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to format the data in each column of your spreadsheet below, but here's an spreadsheet row example based on the screenshot above:
+*MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
+
+In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to format the data in each column of your spreadsheet below, but here's an example row based on the screenshot above:
 
 **title** | **middle image** | **text**
  ----------------|--------------|----------------:
  Baldwin | http://assets.motherjones.com/environment/2013/04/baldwin.jpg | One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>
 
 **Get fancy:** You can play around with the slider's layout by swapping `middle image` for a `top image`, `bottom image`, or `background image` column. Or try embedding videos instead of still images by swapping `middle image` for `top video embed`, `middle video embed`, or `bottom video embed`. If you're using our base CSS, we recommend you stick with just one image or video column. But if you feel compelled to use more than one, the slider will still work.
-
-*MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project). When you're done, upload to s3 and embed in the shell [(how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 ## Set up your Google Spreadsheet
 
@@ -49,7 +49,7 @@ You're welcome to use our default slider style (found in demo/style.css), or sty
 
 ## Formatting your spreadsheet data
 
-The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works]() section.
+The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works](https://github.com/motherjones/simple-slider/blob/master/README.md#how-it-works) section.
 
 The `top image`, `middle image`, `bottom image`, `background image` columns should only have an image URL that ends in .jpg, .png, or .gif.
 
