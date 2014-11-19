@@ -14,15 +14,13 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 ## How it works
 
-Each slide consists of a `title`, `middle image`, and some caption `text`. You'll need to populate a Google Spreadsheet with the content you want in each slide. (Note that video embeds are not fully supported at this stage.) Here's an example based on the screenshot above:
+In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to format the data in each column of your spreadsheet below, but here's an spreadsheet row example based on the screenshot above:
 
-`title`: Baldwin
+**title** | **middle image** | **text**
+ ----------------|--------------|----------------:
+ Baldwin | http://assets.motherjones.com/environment/2013/04/baldwin.jpg | One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>
 
-`middle image`: http://assets.motherjones.com/environment/2013/04/baldwin.jpg
-
-`text`: `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`
-
-We'll go over how to format the data in each column of your spreadsheet below.
+**Get fancy:** You can play around with the slider's layout by swapping `middle image` for a `top image`, `bottom image`, or `background image` column. Or try embedding videos instead of still images by swapping `middle image` for `top video embed`, `middle video embed`, or `bottom video embed`. If you're using our base CSS, we recommend you stick with just one image or video column. But if you feel compelled to use more than one, the slider will still work.
 
 *MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project). When you're done, upload to s3 and embed in the shell [(how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
 
@@ -30,7 +28,7 @@ We'll go over how to format the data in each column of your spreadsheet below.
 
 *MoJo staffers:* Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet appropriately. Change owner to MoJo Data in ``Share > Advanced``
 
-In your new spreadsheet, go up to the `File` menu and pick `Publish to the web,` then click `Start publishing`. 
+In your new spreadsheet, go up to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
 A URL will appear. It will look like this: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
 
@@ -40,38 +38,32 @@ Copy that link. This is your spreadsheet ID or url, which you will eventually us
 
 *MoJo staffers:* By now you should have a local clone of this project repo on your machine, by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project)
 
-**In index.html:**
+**In index.html (required):**
 
 Paste the link you just copied into your html file, in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
 `$('#slideshow').slideshow('public_spreadsheet_url');`
 
-## Format your spreadsheet data
+**In style.css (optional):**
 
-Think of each row of your spreadsheet as one slide, and each column in that row as an element of the slide. The slider supports the following columns headers: 
+You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. Again, we do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only `middle image`).
 
-`title`	`text` 		`top image` `middle image`	`bottom image` `background image` 		`top video embed` 	`middle video embed`	`bottom video embed`
+## Formatting your spreadsheet data
 
-The `title` and `text` columns are designated for any text that will go in the slide. Only include the columns you want; they're all optional. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>.
+The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works]() section.
 
-The `top image` `middle image`	`bottom image` `background image` columns are designated for any images that will go in the slide. They take any image URL. Make sure the link ends with .jpg, .gif, or .png.
+The `top image`, `middle image`, `bottom image`, `background image` columns should only have an image URL that ends in .jpg, .png, or .gif.
 
-The `top video embed` `middle video embed`	`bottom video embed` columns are designated for embedding videos in slides. Copy the video's embed code and paste that code the spreadsheet cell. The embed code will look something like this:
+For `top video embed`, `middle video embed`, `bottom video embed`, only add the columns  in slides. Copy the video's embed code and paste that code the spreadsheet cell. The embed code looks like this:
 
 `<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
-*Note:* The `source` column is for *MoJo staffers*—it keeps our army of fact-checkers happy.
+The `source` column is for *MoJo staffers* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
 
 Once you've got the data formatted properly, you're almost done.
 
-**In style.css**
-
-You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. We do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only "top image"). If you insist on using more than one, however, the slider will still work.
-
-*MoJo staffers:*
-
 ## Optional: using JSON to feed your slider
 
-If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly, which will look like this:
+If you don't want a Google spreadsheet to power your slider, you can instead use JSON directly. Here's an example:
 
 ```
 
