@@ -92,5 +92,9 @@ var slideshow = jQuery.slideshow([
 
 ```
 
+## Questions?
+
+Hit us up by email, or Twitter: @jaeahjlee or @tasneemraja
+
 ## License
 Copyright (c) 2012 Mother Jones
