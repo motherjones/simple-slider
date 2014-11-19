@@ -22,8 +22,6 @@ In its most basic form, each slide consists of a `title`, `middle image`, and so
  ----------------|--------------|----------------:
  `Baldwin` | `http://assets.motherjones.com/environment/2013/04/baldwin.jpg` | `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`
 
-**Get fancy:** You can play around with the slider's layout by swapping `middle image` for a `top image`, `bottom image`, or `background image` column. Or try embedding videos instead of still images by swapping `middle image` for `top video embed`, `middle video embed`, or `bottom video embed`. If you're using our base CSS, we recommend you stick with just one image or video column. But if you feel compelled to use more than one, the slider will still work.
-
 ## Set up your Google Spreadsheet
 
 *MoJo staffers:* Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet appropriately. Change owner to MoJo Data in ``Share > Advanced``
@@ -55,12 +53,6 @@ You're welcome to use our default slider style (found in demo/style.css), or sty
 ## Formatting your spreadsheet data
 
 The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works](https://github.com/motherjones/simple-slider/blob/master/README.md#how-it-works) section.
-
-The `top image`, `middle image`, `bottom image`, `background image` columns should only have an image URL that ends in .jpg, .png, or .gif.
-
-For `top video embed`, `middle video embed`, `bottom video embed`, only add the columns  in slides. Copy the video's embed code and paste that code the spreadsheet cell. The embed code looks like this:
-
-`<iframe width="960" height="720" src="http://www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>`
 
 The `source` column is for *MoJo staffers* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
 
