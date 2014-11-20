@@ -16,7 +16,7 @@ A super simple, easy-to-edit slider created from a Google spreadsheet. Move thro
 
 ## How it works
 
-*MoJo staffers:* Before you get started, following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
+*MoJo users:* Before you get started, following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 In its simplest form, this slider is a collection of slides, where each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, and `text` column, filling each row with your story content. We'll go over how to set up and format your spreadsheet below, but here's a snapshot of what your data should look like:
 
@@ -26,7 +26,7 @@ In its simplest form, this slider is a collection of slides, where each slide co
 
 ## Set up your Google Spreadsheet
 
-*MoJo staffers:* Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
+*MoJo users:* Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0AswaDV9q95oZdDZFSWpEZHlNRUlHWmVqa3JqalZsZXc&output=html) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
 
 In order for the slider to be able to read your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
@@ -36,11 +36,11 @@ Copy that link. This is your spreadsheet ID or url, which you will use to connec
 
 ## Modify your project files
 
-*MoJo staffers:* By now you should have a local clone of this project repo on your machine, by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project)
+*MoJo users:* By now you should have a local clone of this project repo on your machine. If you don't, go back and follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-**In index.html (required):**
+**In your copy of index.html (required):**
 
-Paste the link you just copied into your html file, in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
+In order to get your data showing up in the slider, you'll need to edit a couple of lines of code in your index.html file. Paste the ID or url you just copied from your spreadsheet, and paste it in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
 
 ```
 
@@ -48,21 +48,39 @@ $('#slideshow').slideshow('public_spreadsheet_url');
 
 ```
 
-**In style.css (optional):**
+The code after your changes should look like this:
 
-You're welcome to use our default slider style (found in demo/style.css), or style to your own taste. Again, we do think the slider looks nicest if you use only one of the image OR video columns (the demo uses only `middle image`).
+```
+
+$('#slideshow').slideshow('0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc');
+
+```
+
+Save your changes.
+
+**Styling the slider (optional):**
+
+Once you've got your data showing up in the slider, you can consider styling it to your own taste. You're welcome to use our default slider style (found in css/style.css), or add your own CSS. (*MoJo users* will want to stick to the default styles.) 
+
+**Pro Tips:** The slider works best if you:
+
+* Keep your image dimensions consistent across slides.
+
+* Keep your captions short, sweet, and consistent in length across slides. 
 
 ## Formatting your spreadsheet data
 
+Now go back to your spreadsheet.
+
 The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works](https://github.com/motherjones/simple-slider/blob/master/README.md#how-it-works) section.
 
-The `source` column is for *MoJo staffers* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
+The `source` column is for *MoJo users* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
 
-Once you've got the data formatted properly. Now you're ready to stage the slider.
+Once you've got the data formatted properly, open your index.html file in a web browser and check that your data is showing up, and the slider is working properly. Once you have it working, you're ready to stage the slider.
 
-## Staging the inline-slider (for MoJo staff only)
+## Staging the inline-slider (for MoJo users only)
 
-*MoJo staffers:* When you're done, upload to s3 and embed in the shell [(how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
+*MoJo users:* When you're done, upload to s3 and embed in the shell [(follow this how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 ## Use JSON instead (optional)
 
