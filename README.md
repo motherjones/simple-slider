@@ -32,7 +32,7 @@ Make a copy of [this template]( https://docs.google.com/spreadsheet/pub?key=0Asw
 
 In order for the slider to be able to read your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
-A URL will appear. It will something like this: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
+A URL will appear. It will look something like this: `https://docs.google.com/spreadsheet/pub?key=0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc&output=html`
 
 Copy that link. This is your spreadsheet ID or url, which you will use to connect your spreadsheet to the slider.
 
