@@ -62,17 +62,21 @@ Save your changes.
 
 Once you've got your data showing up in the slider, you can consider styling it to your own taste. You're welcome to use our default slider style (found in css/style.css), or add your own CSS. (*MoJo users* will want to stick to the default styles.) 
 
-**Pro Tips:** The slider works best if you:
+**Pro Tips:** 
 
-* Keep your image dimensions consistent across slides.
+The slider works best if you:
+
+* Keep your image dimensions consistent across slides. Same for your video embed dimensions.
 
 * Keep your captions short, sweet, and consistent in length across slides. 
 
 ## Formatting your spreadsheet data
 
-Now go back to your spreadsheet.
+Back to your spreadsheet.
 
 The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works](https://github.com/motherjones/simple-slider/blob/master/README.md#how-it-works) section.
+
+
 
 The `source` column is for *MoJo users* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
 
