@@ -18,11 +18,13 @@ A super simple, easy-to-edit slider created from a Google spreadsheet. Move thro
 
 *MoJo users:* Before you get started, following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-In its simplest form, this slider is a collection of slides, where each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, and `text` column, filling each row with your story content. We'll go over how to set up and format your spreadsheet below, but here's a snapshot of what your data should look like:
+In its simplest form, this slider is a collection of slides, where each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, and `text` column, filling each row with your story content. We'll go over how to set up and format your spreadsheet below, but here's a snapshot of what the first two rows of your spreadsheet should look like:
 
 |**title**|**middle image**|**text**|
 |---|------|----|
 |`Baldwin` | `http://assets.motherjones.com/environment/2013/04/baldwin.jpg` | `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`|
+
+**Embed video!** You can embed videos instead of still images by swapping `middle image` for `middle video embed`.
 
 ## Set up your Google Spreadsheet
 
@@ -76,9 +78,13 @@ Back to your spreadsheet.
 
 The `title`, `text` columns should have plain text or html. You can add hyperlinks and styled text—for source credits—by wrapping them in <a href=""></a> and <span class="credit"></span>, as shown in the [How it works](https://github.com/motherjones/simple-slider/blob/master/README.md#how-it-works) section.
 
+For images, the cells in your `middle image` column should only have an image URL that ends in .jpg, .png, or .gif, as shown in the example above.
 
+For videos, copy the video's embed code (as shown above) and paste it in the appropriate row under the `middle video embed` column. The embed code will look something like this:
 
-The `source` column is for *MoJo users* when bulletproofing our data and tracking the origin of each row's data. You're welcome to adopt this practice.
+<iframe width="420" height="315" src="//www.youtube.com/embed/TZzzXutPfks" frameborder="0" allowfullscreen></iframe>
+
+The `source` column is for *MoJo users* when bulletproofing our data and tracking the origin of each row's data, and anyone else is welcome to adopt this practice.
 
 Once you've got the data formatted properly, open your index.html file in a web browser and check that your data is showing up, and the slider is working properly. Once you have it working, you're ready to stage the slider.
 
