@@ -1,6 +1,6 @@
 # A Google Spreadsheet-Powered Slider
 
-A super simple, mobile-friendly, easy-to-edit slider created from a Google spreadsheet. Slide frames by click, left and right arrow keys, or swipe. Here's an example slide:
+A super simple, easy-to-edit slider created from a Google spreadsheet. Move through slides by clicking, using left and right arrow keys, or (on mobile) swiping. Works well as a photo slideshow embedded inline. Here's an example slide from the wild:
 
 <p align="center">
   <img width="50%" src="https://raw.githubusercontent.com/motherjones/simple-slider/master/img/screenshot.png" alt="screenshot"/>
@@ -8,19 +8,21 @@ A super simple, mobile-friendly, easy-to-edit slider created from a Google sprea
 
 ## Examples in the Wild
 
+["This Newsman Ink That Runs Through My Veins": An interactive photoessay about the Philadelphia Inquirer](http://www.motherjones.com/media/2013/07/interactive-philadelphia-inquirer-newspaper-photo-will-steacy)
+
 [Why Your Supermarket Sells Only 5 Kinds of Apples](http://www.motherjones.com/environment/2013/04/heritage-apples-john-bunker-maine)
 
-[The rare earth metals we use every day](http://www.motherjones.com/environment/2012/11/rare-earth-elements-iphone-malaysia)
+[Your Smartphone's Dirty, Radioactive Secret](http://www.motherjones.com/environment/2012/11/rare-earth-elements-iphone-malaysia)
 
 ## How it works
 
-*MoJo staffers:* get started by following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
+*MoJo staffers:* Before you get started, following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-In its most basic form, each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, `text` column, and fill the rows with your story content. We'll go over how to set up and format your spreadsheet below, but here's an snapshot of what your data should look like:
+In its simplest form, this slider is a collection of slides, where each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, and `text` column, filling each row with your story content. We'll go over how to set up and format your spreadsheet below, but here's a snapshot of what your data should look like:
 
-**title** | **middle image** | **text**
- ----------------|--------------|----------------:
- `Baldwin` | `http://assets.motherjones.com/environment/2013/04/baldwin.jpg` | `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`
+|**title**|**middle image**|**text**|
+|---|------|----|
+|`Baldwin` | `http://assets.motherjones.com/environment/2013/04/baldwin.jpg` | `One of the most popular apples in the US until freakish winter weather in 1933-34 knocked it into obscurity. <span class="credit">USDA</span>`|
 
 ## Set up your Google Spreadsheet
 
