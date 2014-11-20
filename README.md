@@ -16,7 +16,7 @@ A super simple, easy-to-edit slider created from a Google spreadsheet. Move thro
 
 ## How it works
 
-*MoJo users:* Before you get started, following [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
+*MoJo users:* Before you get started, follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 In its simplest form, this slider is a collection of slides, where each slide consists of a `title`, `middle image`, and some caption `text`. Accordingly, you'll need to create a Google Spreadsheet with a `title`, `middle image`, and `text` column, filling each row with your story content. We'll go over how to set up and format your spreadsheet below, but here's a snapshot of what the first two rows of your spreadsheet should look like:
 
@@ -62,7 +62,7 @@ $('#slideshow').slideshow('0Arenb9rAosmbdG5GWHFXbWJlN1hTR2ZmN3lZMVZkOHc');
 
 ```
 
-Save your changes.
+Save your changes. Open up index.html using a web browser and check that your data is showing up in the slider.
 
 **Styling the slider (optional):**
 
