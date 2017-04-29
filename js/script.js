@@ -1,7 +1,7 @@
 
-(function($) {
+(($ => {
 
-    $.slideshow = function(slides, options) {
+    $.slideshow = (slides, options) => {
         var cover;
         var container_elem;
         var next_button_elem;
@@ -13,7 +13,7 @@
 
         var slideshow = {
             container : 'slideshow',
-            init : function(raw_slides, options) {
+            init(raw_slides, options) {
                 self = this;
                 if (options) {
                     for ( var option in options ) {
@@ -21,7 +21,7 @@
                     }
                 }
 
-                start_slide = (function() {
+                start_slide = ((() => {
                     if (!document.location.search) {
                         return 0;
                     }
@@ -29,7 +29,7 @@
                         return 0;
                     }
                     return parseInt(document.location.search.replace('?slide=', ''));
-                })()
+                }))()
 
                 if (typeof(raw_slides) === 'string') {
                     //is a google spreadsheet
@@ -45,10 +45,10 @@
                     self.append_slide(self.slides[i]);
                 }
 
-                jQuery(window).bind("popstate", function(e) {
+                jQuery(window).bind("popstate", e => {
                     slide = event.state 
                         ? event.state.slide 
-                        : (function() {
+                        : ((() => {
                             if (!document.location.search) {
                                 return 0;
                             }
@@ -56,7 +56,7 @@
                                 return 0;
                             }
                             return parseInt(document.location.search.replace('?slide=', ''));
-                        })();
+                        }))();
 
                     if (e.originalEvent.state) {
                         pushed_back = true;
@@ -69,7 +69,7 @@
                         {
                             startSlide: parseInt(start_slide),
                             speed: 500,
-                            callback: function(event, index, elem) {
+                            callback(event, index, elem) {
                                 cover.find('.control_container .disabled').removeClass('disabled');
                                 if (index === 0) {
                                     cover.find('.control_container #slideshow_back_button').addClass('disabled');
@@ -94,21 +94,21 @@
                     cover.find('.control_container #slideshow_next_button').addClass('disabled');
                 }
 
-                jQuery(document).bind('resize', function() {
+                jQuery(document).bind('resize', () => {
                     self.control_container.remove();
                     self.pagination.remove();
                     self.cover.html('');
                     self.init();
                 });
-                cover.mouseout(function(e) {
+                cover.mouseout(e => {
                     jQuery(document).unbind('keydown', self.keydown_event);
                 });
-                cover.mouseover(function() {
+                cover.mouseover(() => {
                     jQuery(document).keydown(self.keydown_event);
                 });
                 return self;
             },
-            keydown_event : function(e) {
+            keydown_event(e) {
                     if (e.keyCode === 37) {
                         self.back()
                     } else if (e.keyCode === 39) {
@@ -116,10 +116,10 @@
                     }
                     return false;
             },
-            make_slides_from_google_spreadsheet: function(spreadsheet_id) {
+            make_slides_from_google_spreadsheet(spreadsheet_id) {
                 Tabletop.init({ 
                     key: spreadsheet_id,
-                    callback: function(data) {
+                    callback(data) {
                         var slides_data = self.make_slides_data_from_spreadsheet_data(data);
                         self.init(slides_data, options);
                     },
@@ -127,11 +127,11 @@
                 });
             },
 
-            make_slides_data_from_spreadsheet_data: function(data) {                    
+            make_slides_data_from_spreadsheet_data(data) {                    
                 return data;                
             },
 
-            make_html_from_slide_data: function(data) {
+            make_html_from_slide_data(data) {
                 var slides = [];
                 for (var i = 0; i < data.length; i++) {
                     var row = data[i];
@@ -142,7 +142,7 @@
                 return slides;
             },
 
-            build_slide_html_from_row: function(row) {
+            build_slide_html_from_row(row) {
 
                 return '<li '
                     + ( row.backgroundimage 
@@ -164,7 +164,7 @@
                     + '</li>';
             },
             
-            create_cover : function() {
+            create_cover() {
                 cover = $('#' + self.container);
                 container_elem = jQuery('<ul></ul>');
                 cover.append(container_elem);
@@ -172,23 +172,23 @@
                 container_elem.css('padding', '0px');
                 self.set_slider_width();
             },
-            create_pagination: function() {
+            create_pagination() {
                 var pagination_container = jQuery('<ul class="pagination_container" style="display: inline; list-style-type: none;"></ul>');
                 for ( var i = 0; i < self.slides.length; i++ ) {
                     item = jQuery('<li class="pagination_' + i
                             + (i === parseInt(start_slide) ? ' selected' : '') 
                             + '">' + (i + 1) +'</li>');
-                    (function(item, i) {
-                        item.bind('click', function() {
+                    (((item, i) => {
+                        item.bind('click', () => {
                             self.swipe.slide(i);
                         });
-                    })(item, i);
+                    }))(item, i);
                     pagination_container.append(item);
                 }
                 pagination_container.after(jQuery('<span> of ' + self.slides.length + '</span>'));
                 return pagination_container;
             },
-            set_slider_width : function() {
+            set_slider_width() {
                                    return;
                var width;
                if (window.getComputedStyle) {
@@ -198,7 +198,7 @@
                }
                container_elem.css('width', width);
             },
-            create_controls : function() {
+            create_controls() {
                 var control_container = jQuery('<div class="control_container"></div>');
                 control_container.append(self.create_back_button_elem());
                 self.pagination = self.create_pagination();
@@ -207,33 +207,33 @@
 
                 return control_container;
             },
-            create_back_button_elem : function() {
+            create_back_button_elem() {
                 back_button_elem = $('<a id="slideshow_back_button"' + 
                     ' value="back">Back</a>'
                 );
-                back_button_elem.click(function(){self.back();});
+                back_button_elem.click(() => {self.back();});
                 back_button_elem.addClass('slideshow_top_controls');
                 return back_button_elem;
             },
-            create_next_button_elem : function() {
+            create_next_button_elem() {
                 next_button_elem = $('<a id="slideshow_next_button"' + 
                     ' value="next">Next</a>'
                 );
-                next_button_elem.click(function(){self.next();});
+                next_button_elem.click(() => {self.next();});
                 next_button_elem.addClass('slideshow_top_controls');
                 return next_button_elem;
             },
-            append_slide : function(slide) {
+            append_slide(slide) {
                 slide.element = jQuery(slide.html);
                 container_elem.append(slide.element);
             },
-            display_slide : function(slide) {
+            display_slide(slide) {
                 self.swipe(slide);
             },
-            back : function() {
+            back() {
                self.swipe.prev();
             },
-            next : function() {
+            next() {
                if ( self.swipe.index !== (self.slides.length - 1) ) { 
                    self.swipe.next();
                }
@@ -248,4 +248,4 @@
         this.slideshow = $.slideshow(slides, options);
         return this;
     };
-}(jQuery));
+})(jQuery));
