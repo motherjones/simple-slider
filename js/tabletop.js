@@ -1,4 +1,4 @@
-(function(global) {
+((global => {
 
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function (obj, fromIndex) {
@@ -71,17 +71,15 @@
   Tabletop.callbacks = {};
 
   // Backwards compatibility.
-  Tabletop.init = function(options) {
-    return new Tabletop(options);
-  };
+  Tabletop.init = options => new Tabletop(options);
 
-  Tabletop.sheets = function() {
+  Tabletop.sheets = () => {
     alert("Times have changed! You'll want to use var tabletop = Tabletop.init(...); tabletop.sheets(...); instead of Tabletop.sheets(...)");
   };
 
   Tabletop.prototype = {
 
-    fetch: function(callback) {
+    fetch(callback) {
       if(typeof(callback) !== "undefined") {
         this.callback = callback;
       }
@@ -95,10 +93,10 @@
 
       Let's be plain-Jane and not use jQuery or anything.
     */
-    injectScript: function(url, callback) {
-      var script = document.createElement('script'),
-          self = this,
-          callbackName = 'tt' + (+new Date()) + (Math.floor(Math.random()*100000));
+    injectScript(url, callback) {
+      var script = document.createElement('script');
+      var self = this;
+      var callbackName = 'tt' + (+new Date()) + (Math.floor(Math.random()*100000));
       // Create a temp callback which will get removed once it has executed,
       // this allows multiple instances of Tabletop to coexist.
       Tabletop.callbacks[ callbackName ] = function () {
@@ -117,7 +115,7 @@
       If { wanted: ["Sheet1"] } has been specified, only Sheet1 is imported
       Pulls all sheets if none are specified
     */
-    isWanted: function(sheetName) {
+    isWanted(sheetName) {
       if(this.wanted.length === 0) {
         return true;
       } else {
@@ -130,7 +128,7 @@
       if simpleSheet == true, then don't return an array of Tabletop.this.models,
       only return the first one's elements
     */
-    data: function() {
+    data() {
       // If the instance is being queried before the data's been fetched
       // then return undefined.
       if(this.model_names.length === 0) {
@@ -148,7 +146,7 @@
     /*
       Add another sheet to the wanted list
     */
-    addWanted: function(sheet) {
+    addWanted(sheet) {
       if(this.wanted.indexOf(sheet) == -1) {
         this.wanted.push(sheet)
       }
@@ -162,8 +160,9 @@
 
       Used as a callback for the worksheet-based JSON
     */
-    loadSheets: function(data) {
-      var i, ilen;
+    loadSheets(data) {
+      var i;
+      var ilen;
       var toInject = [];
 
       for(i = 0, ilen = data.feed.entry.length; i < ilen ; i++) {
@@ -186,7 +185,7 @@
       .sheets() gets you all of the sheets
       .sheets('Sheet1') gets you the sheet named Sheet1
     */
-    sheets: function(sheetName) {
+    sheets(sheetName) {
       if(typeof sheetName === "undefined")
         return this.models;
       else
@@ -203,8 +202,8 @@
 
       Used as a callback for the list-based JSON
     */
-    loadSheet: function(data) {
-      var model = new Tabletop.Model( { data: data, 
+    loadSheet(data) {
+      var model = new Tabletop.Model( { data, 
                                     parseNumbers: this.parseNumbers,
                                     postProcess: this.postProcess } );
       this.models[ model.name ] = model;
@@ -221,12 +220,12 @@
         only request certain pieces of data (i.e. simpleSheet mode)
       Tests this.sheetsToLoad just in case a race condition happens to show up
     */
-    doCallback: function() {
+    doCallback() {
       if(this.sheetsToLoad === 0)
         this.callback(this.data(), this);
     },
 
-    log: function(msg) {
+    log(msg) {
       if(this.debug) {
         if(typeof console !== "undefined" && typeof console.log !== "undefined") {
             console.log(msg)
@@ -243,7 +242,10 @@
     Options should be in the format { data: XXX }, with XXX being the list-based worksheet
   */
   Tabletop.Model = function(options) {
-    var i, j, ilen, jlen;
+    var i;
+    var j;
+    var ilen;
+    var jlen;
     this.column_names = [];
     this.name = options.data.feed.title.$t;
     this.elements = [];
@@ -270,23 +272,25 @@
         options.postProcess(element);
       this.elements.push(element);
     }
-
   };
 
   Tabletop.Model.prototype = {
     /*
       Returns all of the elements (rows) of the worksheet as objects
     */
-    all: function() {
+    all() {
       return this.elements;
     },
 
     /*
       Return the elements as an array of arrays, instead of an array of objects
     */
-    toArray: function() {
-      var array = [],
-          i, j, ilen, jlen;
+    toArray() {
+      var array = [];
+      var i;
+      var j;
+      var ilen;
+      var jlen;
       for(i = 0, ilen = this.elements.length; i < ilen; i++) {
         var row = [];
         for(j = 0, jlen = this.column_names.length; j < jlen ; j++) {
@@ -298,4 +302,4 @@
     }
   };
 
-})(this);
+}))(this);
